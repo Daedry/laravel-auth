@@ -22,10 +22,8 @@ Auth::routes();
 
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function(){
     Route::get('/', 'HomeController@index')->name('dashboard');
+    Route::resource('posts', 'PostController');
 });
-
-
-
 
 
 Route::get("{any?}", function () {
