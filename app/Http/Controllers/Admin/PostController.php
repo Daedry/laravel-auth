@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Model\Post;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+// use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -15,8 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        dd($posts);
+        $posts = Post::orderByDesc('id')->get();
+        // dd($posts);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -27,18 +29,31 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request\PostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        // dd($request->all());
+
+        // Validare i dati
+        $val_data = $request->validated();
+
+        // Generare lo slug
+        $slug = Str::slug($request->title, '-');
+        $val_data['slug'] = $slug;
+
+        // Creiamo la risorsa 
+        Post::create($val_data);
+
+        // Redirect
+        return redirect()->route('admin.posts.index')->with('success', 'Post created successfully');
     }
 
     /**
@@ -70,7 +85,7 @@ class PostController extends Controller
      * @param  \App\Model\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         //
     }
