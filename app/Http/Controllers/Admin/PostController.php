@@ -114,7 +114,7 @@ class PostController extends Controller
         $post->update($val_data);
 
         // redirect to get route
-        return redirect()->route('admin.posts.index')->with('message', '$post->title  Post updated successfully');
+        return redirect()->route('admin.posts.index')->with('message', "$post->title  Post updated successfully");
     }
 
     /**
@@ -126,6 +126,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('admin.posts.index')->with('message', 'Post deleted successfully');
+        return redirect()->route('admin.posts.index')->with('message', "$post->title Post deleted successfully");
     }
 }
