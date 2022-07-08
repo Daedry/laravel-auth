@@ -7,7 +7,7 @@
         <h1>{{$post->title}}</h1>
     </div>
     <div class="image py-2">
-        <img width="600" src="{{$post->cover_img}}" alt="{{$post->title}}">
+        <img width="600" src="{{$post->cover_image}}" alt="{{$post->title}}">
     </div>
     <div class="text mt-4">
         <p>{{$post->content}}</p>

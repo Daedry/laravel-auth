@@ -33,7 +33,7 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->slug}}</td>
                 <td>{{$post->content}}</td>
-                <td><img width="180px" src="{{$post->cover_img}}" alt="Cover image {{$post->title}}"></td>
+                <td><img width="180px" src="{{$post->cover_image}}" alt="Cover image {{$post->title}}"></td>
                 <td>
                     <a class="btn btn-primary text-white btn-sm" href="{{route('admin.posts.show', $post->id)}}">View</a>
                     <a class="btn btn-secondary text-white btn-sm mt-2" href="{{route('admin.posts.edit', $post->id)}}"> Edit </a>

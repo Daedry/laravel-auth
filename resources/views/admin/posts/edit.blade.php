@@ -18,12 +18,12 @@
 
         <div class="d-flex my-4">
             <div class="media mr-4">
-                <img class="shadow" src="{{$post->cover_img}}" alt="{{$post->title}}">
+                <img class="shadow" src="{{$post->cover_image}}" alt="{{$post->title}}">
             </div>
             <div class="form-goup">
-                <label for="cover_img">Cover Image</label>
-                <input type="text" name="cover_img" id="cover_img" class="form-control @error('cover_img') is-invalid @enderror" placeholder="Learn php article" aria-describedby="cover_imgHelper" value="{{old('cover_img', $post->cover_img)}}">
-                <small id="cover_imgHelper" class="text-muted">Type the post title, max 150 characters</small>
+                <label for="cover_image">Cover Image</label>
+                <input type="text" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror" placeholder="Learn php article" aria-describedby="cover_imageHelper" value="{{old('cover_image', $post->cover_image)}}">
+                <small id="cover_imageHelper" class="text-muted">Type the post title, max 150 characters</small>
             </div>
         </div>
 
