@@ -46,7 +46,8 @@ class PostController extends Controller
         $val_data = $request->validated();
 
         // Generare lo slug
-        $slug = Str::slug($request->title, '-');
+        $slug = Post::generateSlug($request->title);
+        // $slug = Str::slug($request->title, '-');
         $val_data['slug'] = $slug;
 
         // Creiamo la risorsa 
@@ -87,14 +88,15 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-                // dd($request->all());
+        // dd($request->all());
 
         // validare i dati
         $val_data = $request->validated();
         // dd($val_data);
 
         // Generate slug
-        $slug = Str::slug($request->title, '-');
+        $slug = Post::generateSlug($request->title);
+        // $slug = Str::slug($request->title, '-');
         // dd($slug);
         $val_data['slug'] = $slug;
 
